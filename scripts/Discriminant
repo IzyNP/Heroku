@@ -21,7 +21,7 @@ then
 echo "There is no answer because discriminant is negative" > answer.math
 
 else
-sqrt=$(awk -v x=$dis 'BEGIN{print sqrt(x)}')
+sqrt=$(awk -v x=$discriminant 'BEGIN{print sqrt(x)}')
 x1=$((-$b+$sqrt/2*$a))
 x2=$((-$b-$sqrt/2*$a))
 
