@@ -8,25 +8,24 @@ echo "Enter third number:"
 read c
 
 discriminant=$(($b*$b-4*$a*$c))
-echo $discriminant
+echo "Discriminant is $discriminant"
 
-if [$discriminant -eq 0]
+if [ $discriminant -eq 0 ]
 then
 
-x = - $b * $b / 2 * $a
+x=$((-$b/2*$a))
 echo "The answer is $x" > answer.math
 
-elif [$discriminant -lt 0]
+elif [ $discriminant -lt 0 ]
 then
 echo "There is no answer because discriminant is negative" > answer.math
 
 else
-sqrt = %(echo 'sqrt($discriminant)' | bc)
-x1 = $((- $b * + $sqrt / 2 * $ a))
-x2 = $((- $b * - $sqrt / 2 * $ a))
+sqrt=$(echo "sqrt($discriminant)" | bc)
+x1=$((-$b+$sqrt/2*$a))
+x2=$((-$b-$sqrt/2*$a))
 
-echo "First answer is %x1, second answer is $x2" > answer.math
+echo "First answer is $x1, second answer is $x2" > answer.math
 fi
-
 
 
